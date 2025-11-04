@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Always run this buildpack after the chrome-for-testing buildpack
+echo "copy-chrome"
+exit 0

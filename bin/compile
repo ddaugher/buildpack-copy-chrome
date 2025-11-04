@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BUILD_DIR="$1"
+
+SRC_DIR="$BUILD_DIR/.chrome-for-testing"
+DEST_DIR="$BUILD_DIR/priv/.chrome-for-testing"
+
+if [ -d "$SRC_DIR" ]; then
+  mkdir -p "$DEST_DIR"
+  cp -a "$SRC_DIR/." "$DEST_DIR/"
+  echo "✅ Copied Chrome into priv/.chrome-for-testing"
+else
+  echo "⚠️  No .chrome-for-testing found in $BUILD_DIR (chrome-for-testing buildpack didn’t populate) – skipping copy"
+fi
